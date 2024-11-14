@@ -1,0 +1,29 @@
+<div id="feedbackCarousel" class="carousel slide mt-2 bg-light p-3" data-bs-ride="carousel">
+    <div class="carousel-inner p-5">
+        <% feedbacks.map((feedback, i)=>{ %>
+            <div class="<%= i === 0 ? " carousel-item active": "carousel-item" %>">
+                <div class="d-flex p-5 gap-5">
+                    <img src="<%= `https://picsum.photos/200/200/?random&t=${Date.now() - i}` %>"
+                        class="w-10 h-10 rounded-circle">
+                    <div class="">
+                        <h5 class="text-dark">
+                            <%= feedback.name %>
+                        </h5>
+                        <p class="text-dark text-justify">
+                            <%= feedback.message.slice(0, 600) %>
+                                <%= feedback.message.length> 600 ? "(Show more...)" : "" %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <button class="carousel-control-prev mr-5" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
